@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tinh_diem_ute/static/css/main.af5b8f10.css",
+    "main.js": "/tinh_diem_ute/static/js/main.d1bd9f66.js",
+    "static/js/787.ef6e6033.chunk.js": "/tinh_diem_ute/static/js/787.ef6e6033.chunk.js",
+    "index.html": "/tinh_diem_ute/index.html",
+    "main.af5b8f10.css.map": "/tinh_diem_ute/static/css/main.af5b8f10.css.map",
+    "main.d1bd9f66.js.map": "/tinh_diem_ute/static/js/main.d1bd9f66.js.map",
+    "787.ef6e6033.chunk.js.map": "/tinh_diem_ute/static/js/787.ef6e6033.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af5b8f10.css",
+    "static/js/main.d1bd9f66.js"
+  ]
+}
