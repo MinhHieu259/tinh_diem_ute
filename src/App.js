@@ -33,17 +33,19 @@ function App() {
     setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  const [datas, setdatas] = useState([])
+  const [datas, setdatas] = useState([]);
+ 
+  const [edit, setedit] = useState(datas);
   const handleClick = () => {
-    if(data.diem != '' && data.tinchi != ''){
+    if (data.diem != '' && data.tinchi != '') {
       setdatas(currentData => [...currentData, data]);
-    setData({
-      diem: '',
-      tinchi: ''
-    })
+      setData({
+        diem: '',
+        tinchi: ''
+      })
     }
   }
-
+console.log(datas);
 
   datas.map(item => (
     totalDiemBon += parseInt(item.TichthangBon),
@@ -58,6 +60,18 @@ function App() {
       <p>Tổng điểm thang 4= {totalDiemBon / totalTinChi}</p>
       <p>Tổng điểm thang 10= {totalDiemMuoi / totalTinChi}</p>
     </div>
+  } else {
+    Result_HTML = <div>
+      <p className='text-center' style={{color: "red", fontWeight:"bold"}}>Chưa có môn học</p>
+    </div>
+  }
+
+
+  const handleEdit = (e, idx) => {
+    console.log(datas[idx])
+  }
+
+  const editClick = () => {
 
   }
 
@@ -78,23 +92,27 @@ function App() {
             <th scope="col">Điểm</th>
             <th scope="col">Tín chỉ</th>
             <th scope="col">Điểm thang 4</th>
+            <th>Chỉnh sửa</th>
+            <th>Xóa</th>
           </tr>
         </thead>
         <tbody>
-          {datas.map(itemm => (
-            <tr>
+          {datas.map((itemm, idx) => (
+            <tr key={idx}>
               <td>{STT++}</td>
-              <td>{itemm.diem}</td>
-              <td>{itemm.tinchi}</td>
-              <td>{itemm.thangBon}</td>
+              <td><input onChange={(e, idx) => handleEdit} type='number' name='diem' value={itemm.diem}/></td>
+              <td><input name='tinchi' value={itemm.tinchi}/></td>
+              <td><input value={itemm.thangBon}/></td>
+              <td><button className='btn btn-primary'>Sửa</button></td>
+              <td><button className='btn btn-danger'>Xóa</button></td>
             </tr>
           ))}
 
         </tbody>
       </table>
 
-      <div class="card">
-        <div class="card-body">
+      <div className="card">
+        <div className="card-body">
           {Result_HTML}
         </div>
       </div>
