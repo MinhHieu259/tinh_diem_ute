@@ -15,9 +15,9 @@ function App() {
     diemThangBon = 4;
   } else if (data.diem >= 7) {
     diemThangBon = 3;
-  } else if (data.diem >= 5) {
+  } else if (data.diem >= 5.5) {
     diemThangBon = 2;
-  } else if (data.diem >= 3.5) {
+  } else if (data.diem >= 4) {
     diemThangBon = 1;
   } else {
     diemThangBon = 0;
@@ -71,6 +71,10 @@ console.log(datas);
     console.log(datas[idx])
   }
 
+  const handleRomove = (idx) => {
+      datas.splice(idx, 1)
+  }
+
   const editClick = () => {
 
   }
@@ -100,11 +104,11 @@ console.log(datas);
           {datas.map((itemm, idx) => (
             <tr key={idx}>
               <td>{STT++}</td>
-              <td><input onChange={(e, idx) => handleEdit} type='number' name='diem' value={itemm.diem}/></td>
+              <td><input  type='number' name='diem' value={itemm.diem}/></td>
               <td><input name='tinchi' value={itemm.tinchi}/></td>
               <td><input value={itemm.thangBon}/></td>
               <td><button className='btn btn-primary'>Sửa</button></td>
-              <td><button className='btn btn-danger'>Xóa</button></td>
+              <td><button className='btn btn-danger' onClick={e => {handleRomove(idx)}}>Xóa</button></td>
             </tr>
           ))}
 
